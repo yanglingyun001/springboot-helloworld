@@ -6,11 +6,11 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 #RUN yum update -y
 #RUN yum install -y dejavu*
 
-WORKDIR /home/kuailingdi
+WORKDIR /home/springboot-helloworld
 
-ADD ./target/kuailingdi-1.0.jar /home/kuailingdi/kuailingdi-1.0.jar
+ADD ./target/springboot-helloworld-1.0.jar /home/springboot-helloworld/springboot-helloworld-1.0.jar
 
-ENTRYPOINT ["java",  "-jar", "kuailingdi-1.0.jar"]
+ENTRYPOINT ["java",  "-jar", "springboot-helloworld-1.0.jar"]
 
 
 EXPOSE  80
