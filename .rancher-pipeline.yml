@@ -1,0 +1,22 @@
+stages:
+- name: b
+  steps:
+  - runScriptConfig:
+      image: maven:3.6.0-jdk-8-alpine
+      shellScript: mvn package
+- name: c
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: hello/world:latest
+      registry: 127.0.0.1:34230
+- name: d
+  steps:
+  - applyAppConfig:
+      catalogTemplate: cattle-global-data:alibaba-app-hub-tomcat
+      version: 6.2.3
+      name: helloworld
+      targetNamespace: default
+timeout: 60
+notification: {}
