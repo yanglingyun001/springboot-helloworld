@@ -6,9 +6,9 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 #RUN yum update -y
 #RUN yum install -y dejavu*
 
-WORKDIR /home/springboot-helloworld
+WORKDIR /home
 
-ADD ./target/springboot-helloworld-1.0.jar /home/springboot-helloworld/springboot-helloworld-1.0.jar
+ADD ./target/springboot-helloworld-1.0.jar /home/springboot-helloworld-1.0.jar
 
 ENTRYPOINT ["java",  "-jar", "springboot-helloworld-1.0.jar"]
 
